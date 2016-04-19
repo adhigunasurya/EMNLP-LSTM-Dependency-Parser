@@ -98,7 +98,7 @@ Observe that LSTM becomes competitive only with dropout.
 F-Cubic    & 89.1        & 89.5        & {\bf 0.4} \\ \hline
 LSTM       & 87.4        & 89.5  & {\bf 2.1} \\ \hline
 \end{tabular}
-\caption{\label{table:with_without_dropout} Effect of Dropout on Accuracy}
+\caption{\label{table:with_without_dropout} Effect of Dropout on UAS Accuracy}
 \end{table}
 
 
@@ -144,7 +144,7 @@ The results of dropout and L-2 regularisation are in Table \ref{tab_regul}, alon
                           & 0.4          & {\underline{86.1}}         & {\underline{\bf 85.9}}           & 315          \\ \cline{2-5} 
                           & 0.6          & 85.3          & 85.3           & 500          \\ \hline
 \end{tabular}
-\caption{Accuracy of Various Regularisation}
+\caption{UAS Accuracy of Various Regularisation}
 \label{tab_regul}
 \end{table}
 
@@ -156,7 +156,7 @@ Further, we found that dropout generally improves LSTMs regardless of model size
 \centering
   \centering
   \includegraphics[width=.9\columnwidth]{images/dropout_hidden.eps}
-  \caption{Accuracy vs Hidden Layer Size}
+  \caption{UAS Accuracy vs Hidden Layer Size}
 \label{fig:dropout_hidden}
 \end{figure}
 %To investigate the correlation between dropout and hidden layer size, we applied a fixed dropout rate of 0.5 on both the embedding-hidden and hidden-output connections and experimented with hidden layer sizes from 20 to 100, in increments of 20. We compared the result with the models without dropout and summarised the test UAS result on Figure \ref{fig:dropout_hidden}. Importantly, dropout resulted in a sizable improvement even for small hidden layer sizes that are less prone to overfitting. This result indicates that dropout greatly improves generalisation ability and should be used regardless of model size. 
