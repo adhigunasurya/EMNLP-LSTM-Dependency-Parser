@@ -1,0 +1,23 @@
+
+
+
+\section{Conclusions and Related Work}
+
+We present a transition-based dependency parser using recurrent LSTM units. The motivation is to exploit the entire history of shift/reduce transitions when making predictions. This LSTM parser is competitive with the best feedforward neural network parser \cite{chenmanning14} on overall LAS, and notably improves the accuracy of long-range dependencies. We also show the importance of dropout, particularly on the embedding layer, in improving the model's accuracy and release the parser code to facilitate further investigations. 
+
+{\bf Related work:} %There were several previous works that used RNNs for parsing. 
+\newcite{Vet142} used LSTMs for sequence-to-sequence constituency parsing that makes no prior assumption of the parsing problem.
+\newcite{S13} presented an RNN compositional model for dependency parsing, similar to the RNN constituency parser of \newcite{Set13}. 
+Recently, the transition-based parser of \newcite{Det15} used stack LSTM architectures and represented the parser's internal stack and buffer contents with real-valued embedding.
+In contrast, we present a simple LSTM parser that can still model whole training sequences and memorise all past states, which are beneficial for longer arcs. 
+
+%Fonseca et al. (2015) used convolutional neural network to score edges in graph-based parsing, while the transition-based parser of Dyer et al. (2015) used stack LSTM architectures and represented the parser's internal stack and buffer contents with real-valued embedding.
+
+
+%The previous work of Bansal et al. (2014) integrated word embeddings as additional features in existing transition-based parsers, although they did not use a neural network parsing model.
+
+%In contrast, we present a simple, single layer LSTM parsing architecture that extends the previous work of \newcite{chenmanning14}. Despite its simplicity, our model still has a key advantage of modelling whole training sequences and potential to memorise all past states, which are beneficial for longer arcs. %The previous work of Greff et al. (2015) has analysed the effects of various LSTM hyper-parameters on three tasks that include speech recognition, although to the extent of our knowledge no such analysis has been done for LSTM dependency parsers.
+
+%{\bf Future work:} There are a number of interesting directions for future work. The first possibility is to use a deep LSTM model, as such models have achieved state-of-the-art accuracy in many tasks such as speech recognition (Graves et al., 2013) and machine translation (Luong et al., 2014). 
+%One may also represent the parser's internal states with real-valued vectors instead of relying on a fixed horizon of context window. 
+%Another potential direction is to use beam search for training and testing, which substantially increased accuracy for the feature engineering approaches (Zhang and Clark, 2011).

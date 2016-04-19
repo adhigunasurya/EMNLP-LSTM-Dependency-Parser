@@ -1,0 +1,119 @@
+%
+% File emnlp2015.tex
+%
+% Contact: daniele.pighin@gmail.com
+%%
+%% Based on the style files for ACL-2015, which were, in turn,
+%% Based on the style files for ACL-2014, which were, in turn,
+%% Based on the style files for ACL-2013, which were, in turn,
+%% Based on the style files for ACL-2012, which were, in turn,
+%% based on the style files for ACL-2011, which were, in turn, 
+%% based on the style files for ACL-2010, which were, in turn, 
+%% based on the style files for ACL-IJCNLP-2009, which were, in turn,
+%% based on the style files for EACL-2009 and IJCNLP-2008...
+
+%% Based on the style files for EACL 2006 by 
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt,a4paper]{article}
+\usepackage{acl2015}
+\usepackage{times}
+\usepackage{array}
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+
+\usepackage[OPTIONS]{caption}
+
+%\setlength\titlebox{5cm}
+
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+%% NOTE: not sure what sounds best. jot down whatever comes to mind here and decide later
+\title{Dependency Parsing with LSTMs: An Empirical Evaluation}
+%\title{Transition-Based LSTM Dependency Parser: An Empirical Evaluation}
+% alternative titles:
+% Best Practices for Dependency Parsing with LSTMs
+% Empirical Evaluation and Best Practices for Dependency Parsing with LSTMs
+% Empirical Evaluation and Best Practices for Transition-Based LSTM Dependency Parser
+% Transition-Based LSTM Dependency Parser: An Empirical Evaluation
+
+\author{Adhiguna Kuncoro$^{\spadesuit}$ ~ Yuichiro Sawai$^{\diamondsuit}$ ~ Kevin Duh$^{\heartsuit}$ ~ Yuji Matsumoto$^{\diamondsuit}$\\
+$^{\spadesuit}$School of Computer Science, Carnegie Mellon University, Pittsburgh, PA, USA \\
+$^{\diamondsuit}$Graduate School of Information Science, Nara Institute of Science and Technology, Japan \\
+$^{\heartsuit}$HLTCOE, Johns Hopkins University, Baltimore, MD, USA\\
+{\small \tt akuncoro@cs.cmu.edu, \{sawai.yuichiro.sn0,matsu  \}@is.naist.jp, kevinduh@cs.jhu.edu}
+}
+
+%\author{Adhiguna Kuncoro \\
+%  \\\And
+%  Yuichiro Sawai \\
+%  %Graduate School of Information Science \\
+%  %Nara Institute of Science and Technology \\
+%  %{\tt \{adhiguna-k,sawai.yuichiro.sn0,kevinduh,matsu\}@is.naist.jp } %\\
+%  \And
+%  Kevin Duh \\\And
+%  Yuji Matsumoto \\
+%  }
+  
+\date{}
+
+% for saving spaces around tables and figures
+\setlength\textfloatsep{2truemm}
+\setlength\intextsep{0pt}
+\setlength\abovecaptionskip{1truemm}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We propose a transition-based dependency parser using Recurrent Neural Networks with Long Short-Term Memory (LSTM) units. This extends the feedforward neural network parser of \newcite{chenmanning14} and enables modelling of entire sequences of shift/reduce transition decisions. On the Google Web Treebank, our LSTM parser is competitive with the best feedforward parser on overall accuracy and notably achieves more than 3\% improvement for long-range dependencies, which has proved difficult for previous transition-based parsers due to error propagation and limited context information. Our findings additionally suggest that dropout regularisation on the embedding layer is crucial to improve the LSTM's generalisation.
+
+%We propose a transition-based dependency parser using Recurrent Neural Networks with Long Short-Term Memory (LSTM) units. This extends the feedforward neural network parser of Chen and Manning (2014) and enables modelling of entire sequences of shift/reduce transition decisions. There are numerous design choices involved in LSTM models, each of which considerably affects parsing accuracy; our main contribution is an extensive empirical evaluation which suggests that the best practice involves a combination of high dropout rates and large numbers of hidden units. On the Google Web Treebank, our LSTM parser is competitive with the best feedforward parser on overall accuracy and achieves more than 3\% improvement for long-range dependencies.
+
+\end{abstract}
+
+\section{Introduction}
+
+Two complementary approaches to transition-based dependency parsers have emerged recently. 
+The {\em feature engineering} approach relies on hand-crafted feature templates to model interactions between sparse lexical features. While manually crafting these feature templates requires substantial expertise and extensive trial-and-error, this approach has led to state-of-the-art parsers in many languages \cite{BM06,ZN11}.
+
+In contrast, the {\em neural network} approach enables automatic learning of feature combinations through  non-linear hidden layers and mitigates sparsity issues by sharing similar low-dimensional distributed  representations for related words \cite{Bet03}.
+%As demonstrated by the recent work of Chen and Manning (2014), feedforward neural network parsers can also achieve state-of-the-art results. However, neural network models have their own challenges, as tuning the model architecture and hyperparameters is a similarly laborious process requiring substantial trial-and-error.\footnote{Which of the two approaches is more laborious is subject to debate--possibly an unproductive one.}
+
+In this work, we explore new model architectures under the neural network approach. In particular, we address the issue that the feedforward architecture of the Chen and Manning parser performs training on each oracle configuration \textit{independently} of one another, disregarding the fact that the oracles for each training sentence represent a \textit{whole sequence} of intertwined decisions. Our proposed extension uses a Recurrent Neural Network (RNN) with Long Short-Term Memory (LSTM) units \cite{HS97}. At each time step of the transition system, the LSTM has theoretical access to the \textit{entire history} of past decisions (i.e. shift or reduce). LSTMs are naturally suited for modelling sequences and have shown promising results in e.g. machine translation \cite{Set14} and text-vision modelling \cite{Vet141}.
+
+\par We particularly focus on the LSTM's performance in identifying \textit{long-range dependencies}. Such dependencies have proved difficult for most greedy transition-based parsers \cite{MN07}, including our feedforward baselines, that train on each oracle independently. This difficulty can be attributed to two main reasons: 1) most long-range dependencies are ambiguous, while the classifiers only have access to a limited context window, and 2) longer arcs are constructed after shorter arcs in transition-based parsing, thus increasing the chance of error propagation. In contrast, our LSTM has the key abilities of modelling  whole sequences of training oracles and memorise all past context information, both of which are likely beneficial for longer dependencies.
+
+\par Despite the LSTM's theoretical advantages, in practice it is more prone to overfitting than the feedforward architecture, even with the same number of parameters. An additional contribution of this work is an empirical investigation that suggests that dropout \cite{Set142}, particularly when applied to the embedding layer, substantially improves the LSTM's generalisation ability regardless of hidden layer size. %Our parser is open-sourced: \url{http://to.be.released}.
+
+%While the idea is conceptually simple, the implementation is not trivial. We document the important design choices in tuning the model architecture and hyperparameters. Interestingly, we discover that the combination of large hidden layers (which increases model capacity) and high dropout regularisation rates (which reduces the risk of overfitting) is best for LSTM parsing, while the lack of dropout leads to significantly poorer results. On the Google Web Treebank, our LSTM parser achieves competitive accuracy with the best feedforward model, and notably achieves more than 3\% improvement for long-range dependencies. 
+
+
+\input{model}
+\input{experiment}
+\input{conclusion}
+
+
+
+
+
+%\section*{Acknowledgments}
+
+
+
+% include your own bib file like this:
+\nocite{*}
+\newpage
+\bibliographystyle{acl}
+\bibliography{acl2015}
+
+
+
+
+\end{document}
