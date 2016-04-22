@@ -1,0 +1,204 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citename{Bansal \bgroup et al.\egroup }2014]{Bet14}
+Mohit Bansal, Kevin Gimpel, and Karen Livescu.
+\newblock 2014.
+\newblock Tailoring continuous word representations for dependency parsing.
+\newblock In {\em Proceedings of ACL}.
+
+\bibitem[\protect\citename{Bastien \bgroup et al.\egroup }2012]{Bet12}
+Fr{\'{e}}d{\'{e}}ric Bastien, Pascal Lamblin, Razvan Pascanu, James Bergstra,
+  Ian~J. Goodfellow, Arnaud Bergeron, Nicolas Bouchard, and Yoshua Bengio.
+\newblock 2012.
+\newblock Theano: new features and speed improvements.
+\newblock Deep Learning and Unsupervised Feature Learning NIPS 2012 Workshop.
+
+\bibitem[\protect\citename{Bengio \bgroup et al.\egroup }1994]{Bet94}
+Yoshua Bengio, Patrice Simard, and Paolo Frasconi.
+\newblock 1994.
+\newblock Learning long-term dependencies with gradient descent is difficult.
+\newblock {\em Trans. Neur. Netw.}, 5(2):157--166, March.
+
+\bibitem[\protect\citename{Bengio \bgroup et al.\egroup }2003]{Bet03}
+Yoshua Bengio, Réjean Ducharme, Pascal Vincent, and Christian Jauvin.
+\newblock 2003.
+\newblock A neural probabilistic language model.
+\newblock {\em JOURNAL OF MACHINE LEARNING RESEARCH}, 3:1137--1155.
+
+\bibitem[\protect\citename{Bergstra \bgroup et al.\egroup }2010]{Bet10}
+James Bergstra, Olivier Breuleux, Fr{\'{e}}d{\'{e}}ric Bastien, Pascal Lamblin,
+  Razvan Pascanu, Guillaume Desjardins, Joseph Turian, David Warde-Farley, and
+  Yoshua Bengio.
+\newblock 2010.
+\newblock Theano: a {CPU} and {GPU} math expression compiler.
+\newblock In {\em Proceedings of the Python for Scientific Computing Conference
+  ({SciPy})}, June.
+\newblock Oral Presentation.
+
+\bibitem[\protect\citename{Buchholz and Marsi}2006]{BM06}
+Sabine Buchholz and Erwin Marsi.
+\newblock 2006.
+\newblock Conll-x shared task on multilingual dependency parsing.
+\newblock In {\em Proc. of CoNLL}, pages 149--164.
+
+\bibitem[\protect\citename{Chen and Manning}2014]{chenmanning14}
+Danqi Chen and Christopher~D. Manning.
+\newblock 2014.
+\newblock A fast and accurate dependency parser using neural networks.
+\newblock In {\em Empirical Methods in Natural Language Processing (EMNLP)}.
+
+\bibitem[\protect\citename{Collobert \bgroup et al.\egroup }2011]{Cet11}
+Ronan Collobert, Jason Weston, L{\'{e}}on Bottou, Michael Karlen, Koray
+  Kavukcuoglu, and Pavel~P. Kuksa.
+\newblock 2011.
+\newblock Natural language processing (almost) from scratch.
+\newblock {\em CoRR}, abs/1103.0398.
+
+\bibitem[\protect\citename{Duchi \bgroup et al.\egroup }2011]{Det11}
+John Duchi, Elad Hazan, and Yoram Singer.
+\newblock 2011.
+\newblock Adaptive subgradient methods for online learning and stochastic
+  optimization.
+\newblock {\em J. Mach. Learn. Res.}, 12:2121--2159, July.
+
+\bibitem[\protect\citename{Dyer \bgroup et al.\egroup }2015]{Det15}
+Chris Dyer, Miguel Ballesteros, Wang Ling, Austin Matthews, and Noah~A. Smith.
+\newblock 2015.
+\newblock Transition-based dependency parsing with stack long short-term
+  memory.
+\newblock {\em CoRR}, abs/1505.08075.
+
+\bibitem[\protect\citename{Fonseca \bgroup et al.\egroup }2015]{Fet15}
+Erick~R Fonseca, Avenida~Trabalhador S{\~a}o-carlense, and Sandra~M
+  Alu{\'\i}sio.
+\newblock 2015.
+\newblock A deep architecture for non-projective dependency parsing.
+\newblock {\em Proceedings of NAACL-HLT}, pages 56--61.
+
+\bibitem[\protect\citename{Gers \bgroup et al.\egroup }2002]{Get02}
+Felix~A. Gers, Nicol~N. Schraudolph, and J\"{u}rgen Schmidhuber.
+\newblock 2002.
+\newblock Learning precise timing with lstm recurrent networks.
+\newblock {\em jmlr}, 3:115--143.
+
+\bibitem[\protect\citename{Glorot and Bengio}2010]{GB10}
+Xavier Glorot and Yoshua Bengio.
+\newblock 2010.
+\newblock Understanding the difficulty of training deep feedforward neural
+  networks.
+\newblock In {\em Proceedings of the International Conference on Artificial
+  Intelligence and Statistics (AISTATS’10). Society for Artificial
+  Intelligence and Statistics}.
+
+\bibitem[\protect\citename{Graves}2013]{G13}
+Alex Graves.
+\newblock 2013.
+\newblock Generating sequences with recurrent neural networks.
+\newblock {\em CoRR}, abs/1308.0850.
+
+\bibitem[\protect\citename{Greff \bgroup et al.\egroup }2015]{Get15}
+Klaus Greff, Rupesh~Kumar Srivastava, Jan Koutn{\'{\i}}k, Bas~R. Steunebrink,
+  and J{\"{u}}rgen Schmidhuber.
+\newblock 2015.
+\newblock {LSTM:} {A} search space odyssey.
+\newblock {\em CoRR}, abs/1503.04069.
+
+\bibitem[\protect\citename{Hochreiter and Schmidhuber}1997]{HS97}
+Sepp Hochreiter and J\"{u}rgen Schmidhuber.
+\newblock 1997.
+\newblock Long short-term memory.
+\newblock {\em Neural Comput.}, 9(8):1735--1780, November.
+
+\bibitem[\protect\citename{McDonald and Nivre}2007]{MN07}
+Ryan McDonald and Joakim Nivre.
+\newblock 2007.
+\newblock Characterizing the errors of data-driven dependency parsing models.
+\newblock In {\em Proceedings of the Conference on Empirical Methods in Natural
+  Language Processing and Natural Language Learning}.
+
+\bibitem[\protect\citename{Petrov and McDonald}2012]{PM12}
+Slav Petrov and Ryan McDonald.
+\newblock 2012.
+\newblock Overview of the 2012 shared task on parsing the web.
+\newblock Notes of the First Workshop on Syntactic Analysis of Non-Canonical
+  Language {(SANCL)}.
+
+\bibitem[\protect\citename{Socher \bgroup et al.\egroup }2013]{Set13}
+Richard Socher, John Bauer, Christopher~D. Manning, and Andrew~Y. Ng.
+\newblock 2013.
+\newblock Parsing with compositional vector grammars.
+\newblock In {\em Proceedings of the ACL conference}.
+
+\bibitem[\protect\citename{Srivastava \bgroup et al.\egroup }2014]{Set142}
+Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan
+  Salakhutdinov.
+\newblock 2014.
+\newblock Dropout: A simple way to prevent neural networks from overfitting.
+\newblock {\em Journal of Machine Learning Research}, 15:1929--1958.
+
+\bibitem[\protect\citename{Stenetorp}2013]{S13}
+Pontus Stenetorp.
+\newblock 2013.
+\newblock Transition-based dependency parsing using recursive neural networks.
+\newblock In {\em Deep Learning Workshop at the 2013 Conference on Neural
+  Information Processing Systems (NIPS)}, Lake Tahoe, Nevada, USA, December.
+
+\bibitem[\protect\citename{Sutskever \bgroup et al.\egroup }2014]{Set14}
+Ilya Sutskever, Oriol Vinyals, and Quoc~V. Le.
+\newblock 2014.
+\newblock Sequence to sequence learning with neural networks.
+\newblock {\em CoRR}, abs/1409.3215.
+
+\bibitem[\protect\citename{Toutanova \bgroup et al.\egroup }2003]{Tet03}
+Kristina Toutanova, Dan Klein, Christopher~D. Manning, and Yoram Singer.
+\newblock 2003.
+\newblock Feature-rich part-of-speech tagging with a cyclic dependency network.
+\newblock In {\em Proceedings of the 2003 Conference of the North American
+  Chapter of the Association for Computational Linguistics on Human Language
+  Technology - Volume 1}, NAACL '03, pages 173--180, Stroudsburg, PA, USA.
+  Association for Computational Linguistics.
+
+\bibitem[\protect\citename{Venugopalan \bgroup et al.\egroup }2014]{Vet141}
+Subhashini Venugopalan, Huijuan Xu, Jeff Donahue, Marcus Rohrbach, Raymond~J.
+  Mooney, and Kate Saenko.
+\newblock 2014.
+\newblock Translating videos to natural language using deep recurrent neural
+  networks.
+\newblock {\em CoRR}, abs/1412.4729.
+
+\bibitem[\protect\citename{Vinyals \bgroup et al.\egroup }2014]{Vet142}
+Oriol Vinyals, Lukasz Kaiser, Terry Koo, Slav Petrov, Ilya Sutskever, and
+  Geoffrey~E. Hinton.
+\newblock 2014.
+\newblock Grammar as a foreign language.
+\newblock {\em CoRR}, abs/1412.7449.
+
+\bibitem[\protect\citename{Yamada and Matsumoto}2003]{YM03}
+Hiroyasu Yamada and Yuji Matsumoto.
+\newblock 2003.
+\newblock Statistical dependency analysis with support vector machines.
+\newblock In {\em Proceedings of the International Workshop on Parsing
+  Technologies (IWPT)}.
+
+\bibitem[\protect\citename{Zaremba \bgroup et al.\egroup }2014]{Zet14}
+Wojciech Zaremba, Ilya Sutskever, and Oriol Vinyals.
+\newblock 2014.
+\newblock Recurrent neural network regularization.
+\newblock {\em CoRR}, abs/1409.2329.
+
+\bibitem[\protect\citename{Zeiler}2012]{Z12}
+Matthew~D. Zeiler.
+\newblock 2012.
+\newblock {ADADELTA:} an adaptive learning rate method.
+\newblock {\em CoRR}, abs/1212.5701.
+
+\bibitem[\protect\citename{Zhang and Nivre}2011]{ZN11}
+Yue Zhang and Joakim Nivre.
+\newblock 2011.
+\newblock Transition-based dependency parsing with rich non-local features.
+\newblock In {\em Proceedings of the 49th Annual Meeting of the Association for
+  Computational Linguistics: Human Language Technologies: Short Papers - Volume
+  2}, HLT '11, pages 188--193, Stroudsburg, PA, USA. Association for
+  Computational Linguistics.
+
+\end{thebibliography}
