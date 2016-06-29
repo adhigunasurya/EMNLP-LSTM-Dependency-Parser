@@ -1,15 +1,15 @@
+\section{Related work} Recently, various neural network models have achieved state of the art results in many parsing tasks and languages, including the Google Web Treebank dataset used in this paper. \newcite{Vet142} used LSTMs for sequence-to-sequence constituency parsing that makes no prior assumption of the parsing problem. For dependency parsing, \newcite{S13} presented an RNN compositional model, similar to the RNN constituency parser of \newcite{Set13}. 
 
+More recently, the works of \newcite{Det15} and \newcite{KiperwasserGoldberg16} proposed transition-based LSTM models to automatically extract real-valued feature vectors from the parser configuration. The transition-based parser of \newcite{Det15} used a ``stack LSTM'' architecture and composition functions to obtain a continuous representation of the stack to represent partial trees, along with the buffer and history of actions. Both our work and the stack LSTM model similarly used greedy decoding, although one primary difference is that we used the LSTM to form temporal recurrence over the \emph{hidden states}\footnote{We define the hidden states as the penultimate layer right before the softmax.}. We used the same feature extraction template as \newcite{chenmanning14} and replaced the feedforward connections with LSTM network, while \newcite{Det15} instead used the stack LSTM as a means to extract dense features from the parser configuration without explicit temporal recurrence.%, while \newcite{Det15} used the LSTM networks to encode the buffer, stack, and past actions without any explicit temporal recurrence over the hidden states.
 
+Neural network models have also been used for structured training in transition-based parsing, achieving state of the art results on various dataset. \newcite{Wet15} used a structured perceptron model on top of a feedforward transition-based dependency parser. When augmented with tri-training method on unlabelled data, their model achieved an impressive 87\% LAS on the Web domain data of the Google Web Treebank similarly used in this work. \newcite{Zet15} used beam search and contrastive learning to maximise the probability of the entire gold \emph{sequence} with respect to all other sequences in the beam. \newcite{Aet16} similarly proposed a globally normalised model using beam search and Conditional Random Fields (CRF) loss \cite{Let01} that achieved state of the art results on the benchmark English PTB dataset. 
 
-\section{Conclusions and Related Work}
+Our RNN parsing model is most similar with \newcite{Xet16} that used temporal recurrence over the hidden states for CCG parsing, although we use LSTMs instead of Elman RNNs. Our work additionally investigates the effect of dropout on model performance, and demonstrate the efficacy of temporal recurrence to better capture long-range dependencies.
+
+%In contrast, we present a simple LSTM parser that can still model whole training sequences and memorise all past states, which are beneficial for longer arcs. 
+\section{Conclusions}
 
 We present a transition-based dependency parser using recurrent LSTM units. The motivation is to exploit the entire history of shift/reduce transitions when making predictions. This LSTM parser is competitive with the best feedforward neural network parser \cite{chenmanning14} on overall LAS, and notably improves the accuracy of long-range dependencies. We also show the importance of dropout, particularly on the embedding layer, in improving the model's accuracy.% and release the parser code to facilitate further investigations. 
-
-{\bf Related work:} %There were several previous works that used RNNs for parsing. 
-\newcite{Vet142} used LSTMs for sequence-to-sequence constituency parsing that makes no prior assumption of the parsing problem.
-\newcite{S13} presented an RNN compositional model for dependency parsing, similar to the RNN constituency parser of \newcite{Set13}. 
-Recently, the transition-based parser of \newcite{Det15} used stack LSTM architectures and represented the parser's internal stack and buffer contents with real-valued embedding.
-In contrast, we present a simple LSTM parser that can still model whole training sequences and memorise all past states, which are beneficial for longer arcs. 
 
 %Fonseca et al. (2015) used convolutional neural network to score edges in graph-based parsing, while the transition-based parser of Dyer et al. (2015) used stack LSTM architectures and represented the parser's internal stack and buffer contents with real-valued embedding.
 
