@@ -9,7 +9,7 @@ Our RNN parsing model is most similar with \newcite{Xet16} that used temporal re
 %In contrast, we present a simple LSTM parser that can still model whole training sequences and memorise all past states, which are beneficial for longer arcs. 
 \section{Conclusions}
 
-We present a transition-based dependency parser using recurrent LSTM units. The motivation is to exploit the entire history of shift/reduce transitions when making predictions. This LSTM parser is competitive with the best feedforward neural network parser \cite{chenmanning14} on overall LAS, and notably improves the accuracy of long-range dependencies. We also show the importance of dropout, particularly on the embedding layer, in improving the model's accuracy.% and release the parser code to facilitate further investigations. 
+We present a transition-based dependency parser using recurrent LSTM units. The motivation is to exploit the entire history of shift/reduce transitions when making predictions. This LSTM parser is competitive with the feedforward neural network parser of \newcite{chenmanning14} on overall LAS, and notably improves the accuracy of long-range dependencies. We also show the importance of dropout, particularly on the embedding layer, in improving the model's accuracy.% and release the parser code to facilitate further investigations. 
 
 %Fonseca et al. (2015) used convolutional neural network to score edges in graph-based parsing, while the transition-based parser of Dyer et al. (2015) used stack LSTM architectures and represented the parser's internal stack and buffer contents with real-valued embedding.
 
